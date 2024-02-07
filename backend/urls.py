@@ -25,7 +25,7 @@ from django.shortcuts import redirect
 from django.conf.urls.static import static
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
-from backend.context_processors import site_settings
+
 #
 # urlpatterns = [
 #     path('admin/', admin.site.urls),
@@ -57,7 +57,7 @@ urlpatterns = [
     # path('api/', include('usermanagement.urls')),
     path('accounts/login/', _login, name='session-login'),
     path('accounts/logout/', _logout, name='session-logout'),
-    # path('api/logo-path',site_settings),
+
     path(
             'api/v1/',
             include([
@@ -66,6 +66,7 @@ urlpatterns = [
                      schema_view1.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
                 ##### JWT Authentication API Routes #####
                 path('user/', include('usermanagement.urls')),
+
 
         ]))
 ]

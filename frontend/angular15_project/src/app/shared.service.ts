@@ -15,11 +15,11 @@ export class SharedService {
   //   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   // };
   
-  getLogoPath(): Observable<string> {
-    // Implement your logic to get the logo path from the server
-    // Example: return this.http.get<string>('/api/logo-path');
-    return this.http.get<string>('/api/logo-path');
-  }
+  // getLogoPath(): Observable<string> {
+  //   // Implement your logic to get the logo path from the server
+  //   // Example: return this.http.get<string>('/api/logo-path');
+  //   return this.http.get<string>(this.APIUrl +'/api/v1/logopath');
+  // }
 
   constructor(private http:HttpClient) {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })

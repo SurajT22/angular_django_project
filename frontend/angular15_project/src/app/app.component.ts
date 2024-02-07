@@ -11,13 +11,11 @@ export class AppComponent implements OnInit{
   site_logo: string='';
   constructor(private sharedService: SharedService) {}
 
-  ngOnInit() {
-    this.sharedService.getLogoPath().subscribe(
-      (logoPath: string) => {
-        this.site_logo = logoPath;
-      },
-      // (error) => {
-      //   console.error('Error fetching logo path:', error);
-      // }
-  )};
+  ngOnInit() {}
+  //   this.sharedService.getLogoPath().subscribe(
+  //     (logoPath: string) => {
+  //       this.site_logo = logoPath;
+  //     },
+     
+  // )};
 }
