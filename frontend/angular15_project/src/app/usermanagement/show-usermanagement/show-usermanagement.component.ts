@@ -41,41 +41,44 @@ export class ShowUsermanagementComponent implements OnInit {
     }
     this.ModalTitle = "Add UserProfile";
     this.ActivateAddEditUserComp = true;
+    this.refreshUserList();
   }
 
   editClick(item: any){
     this.usermanag = item;
     this.ModalTitle = "Edit User Profile";
     this.ActivateAddEditUserComp = true;
+    // this.refreshUserList();
+    
 
   }
 
   
-  // deleteClick(item: { id: any; }){
-  //   if(confirm('Are you sure??')){
-  //     this.service.deleteProfile(item.id).subscribe(data=>{
-  //       alert(data.toString());
-  //       this.refreshUserList();
-  //     })
-  //   }
-  // }
-
-  deleteClick(item: any){
-    if (confirm('Are you sure??')) {
-      this.service.deleteProfile(item.id).subscribe(data => {
-        if (data !== null && data !== undefined) {
-          alert(data.toString());
-          this.refreshUserList();
-        } else {
-          // Handle the case where data is null or undefined
-          console.log('this is a data value',data);
-          // console.error('Delete operation returned null or undefined data');
-          // Optionally, you can display a user-friendly error message
-          // alert('Error deleting the profile. Please try again.');
-        }
-      });
+  deleteClick(item: { id: any; }){
+    if(confirm('Are you sure??')){
+      this.service.deleteProfile(item.id).subscribe(data=>{
+        // alert(data.toString());
+        this.refreshUserList();
+      })
     }
   }
+
+  // deleteClick(item: any){
+  //   if (confirm('Are you sure??')) {
+  //     this.service.deleteProfile(item.id).subscribe(data => {
+  //       if (data !== null && data !== undefined) {
+  //         alert(data.toString());
+  //         this.refreshUserList();
+  //       } else {
+  //         // Handle the case where data is null or undefined
+  //         console.log('this is a data value',data);
+  //         // console.error('Delete operation returned null or undefined data');
+  //         // Optionally, you can display a user-friendly error message
+  //         // alert('Error deleting the profile. Please try again.');
+  //       }
+  //     });
+  //   }
+  // }
   
 
   closeClick(){

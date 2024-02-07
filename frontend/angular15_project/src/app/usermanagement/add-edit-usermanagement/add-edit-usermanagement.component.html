@@ -1,13 +1,4 @@
-<!-- <div class="form-froup row">
-    <label class="col-sm-2 col-form-label">User Name</label>
-    <div class="col-sm-10">
-        <input type="text" class="form-control" [(ngModel)]="username" placeholder="Enter Username">
-    </div>
-    <label class="col-sm-2 col-form-label">Email</label>
-    <div class="col-sm-10">
-        <input type="text" class="form-control" [(ngModel)]="email" placeholder="Enter email">
-    </div>
-</div> -->
+
 
 <div class="form-floating mb-3 ">
     <!-- <input type="text" class="form-control " id="id" [(ngModel)]="id" placeholder="Enter id"> -->
@@ -45,10 +36,10 @@
     <label for="floatingPassword" >Password contained</label>
   </div>
 
-<button (click)="addUserProfile()" *ngIf="usermanag.id==0" class="btn btn-primary">
+<button data-bs-dismiss="modal" (click)="addUserProfile()" *ngIf="usermanag.id==0"  class="btn btn-primary">
 Add
 </button>
 
-<button (click)="updateUserProfile()" *ngIf="usermanag.id!=0" class="btn btn-primary">
+<button data-bs-dismiss="modal" (click)="updateUserProfile()" *ngIf="usermanag.id!=0"  class="btn btn-primary">
     Update
     </button>

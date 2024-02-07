@@ -130,18 +130,18 @@ class UserProfileSerializer(serializers.ModelSerializer):
     #
     #     return super().to_internal_value(data)
 
-    @transaction.atomic
-    def update(self, instance, validated_data):
-        # print("+++validated_data+++++", validated_data)
-        user_id = self.context['request'].parser_context['kwargs']['pk']
-        # print("user_id", user_id)
-        if 'id' in validated_data:
-            id = validated_data.pop('id')
-            for attr, value in validated_data.items():
-                setattr(instance, attr, value)
-            instance.save()
-            print("instance",instance)
-            return instance
+    # @transaction.atomic
+    # def update(self, instance, validated_data):
+    #     # print("+++validated_data+++++", validated_data)
+    #     user_id = self.context['request'].parser_context['kwargs']['pk']
+    #     # print("user_id", user_id)
+    #     if 'id' in validated_data:
+    #         id = validated_data.pop('id')
+    #         for attr, value in validated_data.items():
+    #             setattr(instance, attr, value)
+    #         instance.save()
+    #         print("instance",instance)
+    #         return instance
 
 
 

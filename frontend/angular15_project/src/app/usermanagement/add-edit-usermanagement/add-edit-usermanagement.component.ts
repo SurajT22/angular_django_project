@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit,EventEmitter,Output  } from '@angular/core';
 import { SharedService } from 'src/app/shared.service';
 
 @Component({
@@ -8,8 +8,12 @@ import { SharedService } from 'src/app/shared.service';
 })
 export class AddEditUsermanagementComponent implements OnInit {
 
+
+
   constructor(private service: SharedService) { }
 
+  @Output() closeModal: EventEmitter<void> = new EventEmitter<void>();
+  
 
   @Input() usermanag: any;
   id?: number;
@@ -21,6 +25,10 @@ export class AddEditUsermanagementComponent implements OnInit {
   department !: string;
   password !: string;
   // remaining column
+  // closeClick() {
+  //   this.closeModal.emit();
+  // // throw new Error('Method not implemented.');
+  // }
 
   ngOnInit(): void {
     if (this.usermanag) {
@@ -46,7 +54,8 @@ export class AddEditUsermanagementComponent implements OnInit {
       password: this.password,
     };
     this.service.addUserProfile(val).subscribe(res => {
-      alert(res.toString());
+      this.closeModal.emit();
+      // alert(res.toString());
     });
   }
 
@@ -71,7 +80,8 @@ export class AddEditUsermanagementComponent implements OnInit {
       this.service.updateUserProfile(val).subscribe(res => {
 
         console.log('indise udpade userprofile', res);
-        alert(res.toString());
+        // alert(res.toString());
+        this.closeModal.emit();
       });
     }
     else {

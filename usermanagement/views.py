@@ -87,7 +87,7 @@ class UserProfileList(generics.ListCreateAPIView):
     # serializer_class = CustomUserProfileSerializer
     serializer_class = UserProfileSerializer
     # permission_classes = [IsAuthenticated, IsOwnerOrAdmin]
-    permission_classes = [permissions.AllowAny]
+    # permission_classes = [permissions.AllowAny]
     def perform_update(self, serializer):
         serializer.save(modified_by=self.request.user.username)
 
@@ -115,11 +115,11 @@ class UserProfileDetail(generics.RetrieveUpdateDestroyAPIView):
     def patch(self, request, *args, **kwargs):
         return self.update(request, *args, **kwargs)
 
-    def get_serializer_class(self):
-        switcher = {
-            'GET': UserProfileSerializer,
-            'PUT': UserProfileSerializer,
-            'DELETE': UserProfileSerializer,
-            'PATCH': UserProfileSerializer
-        }
-        return switcher[self.request.method]
+    # def get_serializer_class(self):
+    #     switcher = {
+    #         'GET': UserProfileSerializer,
+    #         'PUT': UserProfileSerializer,
+    #         'DELETE': UserProfileSerializer,
+    #         'PATCH': UserProfileSerializer
+    #     }
+    #     return switcher[self.request.method]
